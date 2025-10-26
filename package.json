@@ -1,0 +1,16 @@
+{
+  "name": "02-hw-fibonacci",
+  "version": "0.0.1",
+  "description": "Fibonacci iterator",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
+  },
+  "keywords": [],
+  "author": "edward",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^30.2.0"
+  }
+}
