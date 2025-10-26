@@ -1,24 +1,24 @@
-export function Fibonacci(quantity) {
+export function Fibonacci(quantity, iterator) {
     this.quantity = quantity;
-    this[Symbol.iterator] =  () => {
+    this[Symbol.iterator] = iterator ??  (() => {
         const quantity = this.quantity;
+        let prev = 1;
+        let prevPrev = 1;
+        let counter = 1;
         return {
-            prev: 1,
-            prevPrev: 1,
-            counter: 1,
             next: function () {
-                if (this.counter <= quantity) {
-                    if (this.counter++ <= 2) {
+                if (counter <= quantity) {
+                    if (counter++ <= 2) {
                         return {done: false, value: 1};
                     }
-                    const current = this.prev;
-                    this.prev = this.prev + this.prevPrev;
-                    this.prevPrev = current;
-                    return {done: false, value: this.prev};
+                    const current = prev;
+                    prev = prev + prevPrev;
+                    prevPrev = current;
+                    return {done: false, value: prev};
                 } else {
                     return {done: true}
                 }
             }
         }
-    }
+    })
 }
